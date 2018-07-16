@@ -740,7 +740,7 @@ public class WheelPicker extends View implements IDebug, IWheelPicker, Runnable 
                 isForceFinishScroll = false;
                 int velocity = (int) mTracker.getYVelocity();
                 if (Math.abs(velocity) > mMinimumVelocity) {
-                    //mScroller.fling(0, mScrollOffsetY, 0, velocity, 0, 0, mMinFlingY, mMaxFlingY);
+                    mScroller.fling(0, mScrollOffsetY, 0, velocity, 0, 0, mMinFlingY, mMaxFlingY);
                     mScroller.setFinalY(mScroller.getFinalY() +
                             computeDistanceToEndPoint(mScroller.getFinalY() % mItemHeight));
                 } else {
@@ -749,11 +749,11 @@ public class WheelPicker extends View implements IDebug, IWheelPicker, Runnable 
                 }
                 // 校正坐标
                 // Correct coordinates
-                if (!isCyclic)
-                    if (mScroller.getFinalY() > mMaxFlingY)
-                        mScroller.setFinalY(mMaxFlingY);
-                    else if (mScroller.getFinalY() < mMinFlingY)
-                        mScroller.setFinalY(mMinFlingY);
+//                 if (!isCyclic)
+//                     if (mScroller.getFinalY() > mMaxFlingY)
+//                         mScroller.setFinalY(mMaxFlingY);
+//                     else if (mScroller.getFinalY() < mMinFlingY)
+//                         mScroller.setFinalY(mMinFlingY);
                 mHandler.post(this);
                 if (null != mTracker) {
                     mTracker.recycle();
