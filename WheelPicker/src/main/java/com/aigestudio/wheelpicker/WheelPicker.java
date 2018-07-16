@@ -753,9 +753,9 @@ public class WheelPicker extends View implements IDebug, IWheelPicker, Runnable 
                 // 校正坐标
                 // Correct coordinates
                 if (!isCyclic)
-                    if (mScroller.getFinalY() > mData.size() - 1)
+                    if (mScroller.getFinalY() > mMaxFlingY)
                         mScroller.setFinalY(mData.size() - 1);
-                    else if (mScroller.getFinalY() < 0)
+                    else if (mScroller.getFinalY() < mMinFlingY)
                         mScroller.setFinalY(0);
 //                     if (mScroller.getFinalY() > mMaxFlingY)
 //                         mScroller.setFinalY(mMaxFlingY);
